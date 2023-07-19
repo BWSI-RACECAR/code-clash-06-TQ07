@@ -57,13 +57,19 @@ class Solution:
         min_val = min(numbers)
         max_val = max(numbers)
 
-        # Create a set of all the numbers in the sequence
-        all_numbers = set(range(int(min_val), int(max_val) + 1))
+        # Create a set of all numbers in the range
+        full_set = set(range(int(min_val), int(max_val) + 1))
 
-        # Find the missing numbers by subtracting the set of given numbers from the set of all numbers
-        missing_numbers = list(all_numbers - set(numbers))
+        # Create a set of all numbers in the input list
+        input_set = set(numbers)
 
-        return missing_numbers
+        # Find the difference between the two sets
+        missing_set = full_set - input_set
+
+        # Convert the missing set to a list and sort it
+        missing_list = sorted(list(missing_set))
+
+        return missing_list
 
 
 
