@@ -44,8 +44,6 @@ Input: [3, 3, 3, 3, 4, 7] Output: [5, 6]
 """
 class Solution:
     def findMissingNumbers(self, numbers):
-        if numbers == [1,2,3,4]: return [3,4]
-        if numbers == [0,2]: return [2]
         # type numbers: list of float
         # return type: list of int
 
@@ -63,9 +61,10 @@ class Solution:
         all_numbers = set(range(int(min_val), int(max_val) + 1))
 
         # Find the missing numbers by subtracting the set of given numbers from the set of all numbers
-        missing_numbers = list(all_numbers - set(numbers))
+        missing_numbers = list(all_numbers - set(map(int, numbers)))
 
         return missing_numbers
+    
 
 
 
