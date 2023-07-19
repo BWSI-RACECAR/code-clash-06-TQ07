@@ -66,6 +66,7 @@ class Solution:
         return missing_numbers
 
 
+
 def main():
     array = input().split(" ")
     for x in range (0, len(array)):
