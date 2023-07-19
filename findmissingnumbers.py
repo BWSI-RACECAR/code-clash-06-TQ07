@@ -88,6 +88,7 @@ Input: [3, 3, 3, 3, 4, 7] Output: [5, 6]
 """
 class Solution:
     def findMissingNumbers(self, numbers):
+       
         # type numbers: list of float
         # return type: list of int
 
@@ -96,18 +97,28 @@ class Solution:
             return "Invalid input"
         if len(numbers) == 1:
             return "None missing"
+        
+        new_a = []
+        for i in numbers:
+            new_a.append(int(i + 0.5))
+
+
+        new_a.sort()
+        print(new_a)
 
         # Find the minimum and maximum values in the list
-        min_val = min(numbers)
-        max_val = max(numbers)
+        min_val = min(new_a)
+        max_val = max(new_a)
 
-        # Create a set of all the numbers in the sequence
-        all_numbers = set(range(int(min_val), int(max_val) + 1))
+        out = []
+        for i in range(min_val, max_val):
+            if i != min_val or i != max_val:
+                if i not in new_a:
+                    out.append(i)
 
-        # Find the missing numbers by subtracting the set of given numbers from the set of all numbers
-        missing_numbers = list(all_numbers - set(map(int, numbers)))
 
-        return missing_numbers
+
+        return out
     
 
 
